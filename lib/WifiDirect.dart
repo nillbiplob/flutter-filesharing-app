@@ -882,14 +882,13 @@ getProgress(double v){
       },
     );
   }
-  Future<bool> moveFile(String uri, String fileName) async {
+  Future<void> moveFile(String uri, String fileName) async {
     try {
-      await platform.invokeMethod("Save",<String,String>{
-        'name':fileName,
-        'uri':uri
+      await platform.invokeMethod("Save", <String, String>{
+        'name': fileName,
+        'uri': uri,
       });
-
-    }catch (e){
+    } catch (e) {
       print("Rename error $e");
     }
   }
